@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-
-const Home = () => {
-  const [post,setPost] =useState([]) 
-
+const Home = (props) => {
+  const [post,setPost] =useState([]);
   const getPosts = () => {
     axios.get('/api/posts').then(response =>{
       setPost(response.data)
@@ -12,7 +10,6 @@ const Home = () => {
   }
 
   console.log(post)
-
 
   return (
     <div>
