@@ -11,7 +11,12 @@ const Home = (props) => {
       body:''
     },
     onSubmit: values => {
-      console.log(values)
+      axios.post('/api/posts',values)
+      .then(response =>{
+        console.log(response.data)
+      }).catch(error=>{
+        console.log(error)
+      });
     }
   })
 
