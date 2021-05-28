@@ -1,6 +1,18 @@
 import { connectToDb } from '../../helpers/database/mongo-db';
+import { getAll } from '../../helpers/database/function';
 
 const handler = async(req,res) => {
+
+    if(req.method === 'GET'){
+         try{
+            const documents = await getAll('posts');
+            return res.status(200).json({message:'Got it',result:documents});
+         }catch(error){
+            return res.status(500).json({message:'Sorry try again later',error});
+         }
+    }
+
+
     if(req.method === 'POST'){
         let mongoClient;
         const { title, body } = req.body;

@@ -11,7 +11,7 @@ const Home = (props) => {
       body:''
     },
     onSubmit: values => {
-      axios.post('/api/posts',values)
+      axios.post('/api/mongoose_posts',values)
       .then(response =>{
         console.log(response.data)
       }).catch(error=>{
@@ -21,7 +21,7 @@ const Home = (props) => {
   })
 
   const getPosts = () => {
-    axios.get('/api/posts')
+    axios.get('/api/mongoose_posts')
     .then(response =>{
       console.log(response.data)
     }).catch(error=>{
